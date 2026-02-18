@@ -357,7 +357,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -373,6 +375,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-data-preparation">Tujuan Data Preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-dalam-data-preparation">Langkah-Langkah dalam Data Preparation</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,6 +395,57 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-preparation">
 <h1>Data-Preparation<a class="headerlink" href="#data-preparation" title="Link to this heading">#</a></h1>
+<p>Data Preparation adalah tahap dalam proses analisis data (seperti CRISP-DM) yang berfokus pada menyiapkan data agar siap digunakan untuk proses pemodelan atau analisis lebih lanjut.</p>
+<p>Tahap ini biasanya memakan waktu paling lama karena data mentah sering kali belum bersih dan belum terstruktur dengan baik.</p>
+<section id="tujuan-data-preparation">
+<h2>Tujuan Data Preparation<a class="headerlink" href="#tujuan-data-preparation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Membersihkan data agar bebas dari kesalahan</p></li>
+<li><p>Mengubah format data agar sesuai untuk analisis</p></li>
+<li><p>Menggabungkan berbagai sumber data</p></li>
+<li><p>Memilih variabel yang relevan</p></li>
+</ul>
+</section>
+<section id="langkah-langkah-dalam-data-preparation">
+<h2>Langkah-Langkah dalam Data Preparation<a class="headerlink" href="#langkah-langkah-dalam-data-preparation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Data Cleaning (Pembersihan Data)
+Meliputi:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Menghapus atau mengisi missing value</p></li>
+<li><p>Menghapus duplikasi data</p></li>
+<li><p>Menangani outlier</p></li>
+<li><p>Memperbaiki kesalahan penulisan atau format</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Data Integration (Integrasi Data
+Menggabungkan data dari beberapa sumber menjadi satu dataset yang konsisten.
+Contoh:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Menggabungkan data pelanggan dengan data transaksi.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Data Transformation (Transformasi Data)
+Mengubah data agar sesuai untuk analisis:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Normalisasi atau standarisasi</p></li>
+<li><p>Encoding data kategorikal (misalnya jenis kelamin menjadi 0 dan 1)</p></li>
+<li><p>Mengubah format tanggal</p></li>
+<li><p>Membuat fitur baru (feature engineering)</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Data Reduction (Reduksi Data)
+Mengurangi kompleksitas data:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Memilih variabel penting saja</p></li>
+<li><p>Menghapus kolom yang tidak relevan</p></li>
+<li><p>Menggunakan teknik seperti PCA (jika diperlukan)</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -440,6 +502,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-data-preparation">Tujuan Data Preparation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-dalam-data-preparation">Langkah-Langkah dalam Data Preparation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

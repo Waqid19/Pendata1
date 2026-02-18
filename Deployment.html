@@ -356,7 +356,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -372,6 +374,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-deployment">Tujuan Deployment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-deployment">Bentuk Deployment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deployment">Langkah-Langkah Deployment</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -383,6 +395,68 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="deployment">
 <h1>Deployment<a class="headerlink" href="#deployment" title="Link to this heading">#</a></h1>
+<p>Deployment adalah tahap akhir dalam proses analisis data (seperti CRISP-DM) di mana model atau hasil analisis yang sudah dibuat diimplementasikan ke dalam sistem nyata agar bisa digunakan oleh pengguna atau organisasi.</p>
+<p>Tahap ini memastikan bahwa hasil analisis tidak hanya berhenti pada laporan, tetapi benar-benar memberikan nilai bisnis.</p>
+<section id="tujuan-deployment">
+<h2>Tujuan Deployment<a class="headerlink" href="#tujuan-deployment" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Menerapkan model ke lingkungan produksi</p></li>
+<li><p>Memberikan hasil analisis kepada pengguna akhir</p></li>
+<li><p>Memastikan solusi dapat digunakan secara berkelanjutan</p></li>
+</ul>
+</section>
+<section id="bentuk-deployment">
+<h2>Bentuk Deployment<a class="headerlink" href="#bentuk-deployment" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Pembuatan Laporan (Reporting)</p></li>
+</ol>
+<ul class="simple">
+<li><p>Dashboard (Power BI, Tableau, dll.)</p></li>
+<li><p>Laporan otomatis (PDF/Excel)</p></li>
+<li><p>Visualisasi interaktif</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Integrasi ke Sistem</p></li>
+</ol>
+<ul class="simple">
+<li><p>Model diintegrasikan ke aplikasi web/mobile</p></li>
+<li><p>Digunakan dalam sistem internal perusahaan</p></li>
+<li><p>API untuk prediksi real-time</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Otomatisasi Proses</p></li>
+</ol>
+<ul class="simple">
+<li><p>Sistem rekomendasi otomatis</p></li>
+<li><p>Sistem deteksi fraud otomatis</p></li>
+<li><p>Prediksi churn yang berjalan setiap hari</p></li>
+</ul>
+</section>
+<section id="langkah-langkah-deployment">
+<h2>Langkah-Langkah Deployment<a class="headerlink" href="#langkah-langkah-deployment" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Menyiapkan lingkungan produksi</p></li>
+</ol>
+<ul class="simple">
+<li><p>Server atau cloud (AWS, GCP, Azure)</p></li>
+<li><p>Database</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Implementasi model</p></li>
+</ol>
+<ul class="simple">
+<li><p>Convert model ke format produksi</p></li>
+<li><p>Integrasi dengan sistem</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Monitoring dan Maintenance</p></li>
+</ol>
+<ul class="simple">
+<li><p>Memantau performa model</p></li>
+<li><p>Update model jika performa menurun (model retraining)</p></li>
+<li><p>Menangani bug atau error</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,6 +504,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-deployment">Tujuan Deployment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bentuk-deployment">Bentuk Deployment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-deployment">Langkah-Langkah Deployment</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

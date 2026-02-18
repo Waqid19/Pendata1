@@ -357,7 +357,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -373,6 +375,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-data-understanding">Tujuan Data Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-dalam-data-understanding">Langkah-Langkah dalam Data Understanding</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -384,6 +395,58 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
 <h1>Data-Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
+<p>Data Understanding adalah tahap dalam proses analisis data (seperti CRISP-DM) yang berfokus pada memahami data yang akan digunakan sebelum dilakukan pengolahan atau pemodelan.</p>
+<p>Tahap ini dilakukan setelah Business Understanding, dan bertujuan memastikan data yang tersedia relevan, berkualitas, dan sesuai dengan tujuan bisnis.</p>
+<section id="tujuan-data-understanding">
+<h2>Tujuan Data Understanding<a class="headerlink" href="#tujuan-data-understanding" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Mengenali struktur dan isi data</p></li>
+<li><p>engidentifikasi masalah kualitas data</p></li>
+<li><p>Menemukan pola awal atau insight awal</p></li>
+</ul>
+</section>
+<section id="langkah-langkah-dalam-data-understanding">
+<h2>Langkah-Langkah dalam Data Understanding<a class="headerlink" href="#langkah-langkah-dalam-data-understanding" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Mengumpulkan Data (Collect Initial Data)
+Mengambil data dari berbagai sumber seperti:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Database perusahaan</p></li>
+<li><p>File Excel/CSV</p></li>
+<li><p>API</p></li>
+<li><p>Sistem internal</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Mendeskripsikan Data (Describe Data)
+Memahami:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Jumlah baris dan kolom</p></li>
+<li><p>Tipe data (numerik, kategorikal, tanggal, dll.)</p></li>
+<li><p>Sumber data</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Mengeksplorasi Data (Explore Data)</p></li>
+</ol>
+<p>Melakukan analisis awal seperti:</p>
+<ul class="simple">
+<li><p>Statistik deskriptif (mean, median, min, max)</p></li>
+<li><p>Distribusi data</p></li>
+<li><p>Korelasi antar variabel</p></li>
+<li><p>Visualisasi (grafik, histogram, dll.)</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Memverifikasi Kualitas Data (Verify Data Quality)</p></li>
+</ol>
+<p>Mengecek:</p>
+<ul class="simple">
+<li><p>Missing value (data kosong)</p></li>
+<li><p>Duplikasi data</p></li>
+<li><p>Outlier</p></li>
+<li><p>Inkonsistensi format</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -440,6 +503,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-data-understanding">Tujuan Data Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-dalam-data-understanding">Langkah-Langkah dalam Data Understanding</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
