@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pengantar Data Mining &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'memahami-data';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/poto.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/poto.jpeg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    240411100224 Mohammad Waqidi
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Bussines-Understanding.html">Bussines-Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_understanding.html"><strong>Data Understanding</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="mengukur_jarak.html">MENGUKUR JARAK (SIMILARITY &amp; DISSIMILARITY)</a></li>
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fmemahami-data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/memahami-data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pengantar Data Mining</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Pengantar Data Mining</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keunggulan-data-mining">Keunggulan Data Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-data-mining">1. Konsep Dasar Data Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-statistik-tradisional-dan-data-mining">2. Perbedaan Statistik Tradisional dan Data Mining</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-data"><strong>Memahami Data</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-data">1. Pengertian Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-data">2. Jenis-Jenis Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data">DISTRIBUSI DATA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-ukuran-pemusatan">A. Ukuran Pemusatan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">1. Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">2. Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modus">3. Modus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-ukuran-penyebaran">B. Ukuran Penyebaran</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">1. Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kuartil">2. Kuartil</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range">3. Interquartile Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variansi">4. Variansi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standar-deviasi">5. Standar Deviasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness-kemencengan">Skewness (Kemencengan)</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pengantar-data-mining">
+<h1><strong>Pengantar Data Mining</strong><a class="headerlink" href="#pengantar-data-mining" title="Link to this heading">#</a></h1>
+<p>Data mining adalah bidang ilmu yang mempelajari cara menemukan pengetahuan atau informasi berharga dari kumpulan data yang besar.</p>
+<p>Secara sederhana, data mining dapat dianalogikan seperti proses menambang emas. Dalam penambangan emas, seseorang harus memisahkan emas dari tanah dan batuan yang tidak bernilai. Begitu juga dalam data mining, kita berusaha menemukan informasi berharga dari data mentah yang jumlahnya sangat banyak.</p>
+<p>Dalam konteks bisnis dan pengambilan keputusan, data mining bertujuan untuk menghasilkan informasi yang dapat dijadikan dasar dalam menentukan strategi atau tindakan tertentu.</p>
+<p>Proses data mining melibatkan berbagai teknik, seperti:</p>
+<ul class="simple">
+<li><p>Statistik</p></li>
+<li><p>Matematika</p></li>
+<li><p>Kecerdasan Buatan (Artificial Intelligence)</p></li>
+<li><p>Machine Learning</p></li>
+</ul>
+<p>Teknik-teknik tersebut digunakan untuk mengekstraksi dan mengidentifikasi pola atau pengetahuan yang bermanfaat dari database berukuran besar.</p>
+<section id="keunggulan-data-mining">
+<h2>Keunggulan Data Mining<a class="headerlink" href="#keunggulan-data-mining" title="Link to this heading">#</a></h2>
+<p>Dalam statistik tradisional, data yang sudah ada di masa lalu digunakan untuk memperkirakan kejadian di masa depan. Cara ini biasanya memakai rumus atau model matematika yang sudah ditentukan sebelumnya.</p>
+<p>Sedangkan dalam data mining, analisis tidak hanya melihat data lama, tetapi juga mencoba menemukan pola tersembunyi yang sebelumnya tidak terlihat. Data mining bisa membuat model yang tidak hanya menjelaskan apa yang sudah terjadi, tetapi juga memperkirakan apa yang kemungkinan akan terjadi di masa depan.</p>
+<p>Secara sederhana, keunggulan data mining adalah:</p>
+<ul class="simple">
+<li><p>Membantu memahami data lebih dalam karena dapat menemukan pola yang tidak terlihat sebelumnya.</p></li>
+<li><p>Membantu membuat prediksi untuk mendukung pengambilan keputusan.</p></li>
+<li><p>Menjadi dasar dalam menyusun strategi atau rencana ke depan.</p></li>
+<li><p>Membuat keputusan menjadi lebih baik karena berdasarkan hasil analisis data.</p></li>
+</ul>
+</section>
+<section id="konsep-dasar-data-mining">
+<h2>1. Konsep Dasar Data Mining<a class="headerlink" href="#konsep-dasar-data-mining" title="Link to this heading">#</a></h2>
+<p>Data mining adalah proses menggali informasi bernilai dari kumpulan data dalam jumlah besar. Tujuannya bukan sekadar melihat data, tetapi menemukan pola, hubungan, atau pengetahuan tersembunyi yang bisa dimanfaatkan.</p>
+<p>Secara sederhana, data mining dapat diibaratkan seperti proses menambang. Dari sekumpulan material mentah, kita berusaha menemukan bagian yang paling berharga.</p>
+<p>Dalam konteks bisnis maupun penelitian, data mining digunakan untuk:</p>
+<ul class="simple">
+<li><p>Mendukung pengambilan keputusan</p></li>
+<li><p>Membantu membuat prediksi</p></li>
+<li><p>Menyusun strategi berbasis data</p></li>
+</ul>
+<p>Proses ini memanfaatkan berbagai pendekatan, seperti:</p>
+<ul class="simple">
+<li><p>Statistik</p></li>
+<li><p>Matematika</p></li>
+<li><p>Artificial Intelligence</p></li>
+<li><p>Machine Learning</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="perbedaan-statistik-tradisional-dan-data-mining">
+<h2>2. Perbedaan Statistik Tradisional dan Data Mining<a class="headerlink" href="#perbedaan-statistik-tradisional-dan-data-mining" title="Link to this heading">#</a></h2>
+<p>Statistik tradisional biasanya menggunakan model atau rumus yang sudah ditentukan untuk menguji hipotesis.</p>
+<p>Sedangkan data mining lebih bersifat eksploratif, yaitu mencari pola langsung dari data tanpa selalu bergantung pada asumsi awal. Pendekatan ini memungkinkan ditemukannya pola yang sebelumnya tidak terlihat.</p>
+<p>Keunggulan data mining:</p>
+<ul class="simple">
+<li><p>Menemukan pola tersembunyi</p></li>
+<li><p>Membantu melakukan prediksi</p></li>
+<li><p>Mendukung pengambilan keputusan berbasis data</p></li>
+<li><p>Membantu perencanaan jangka panjang</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+<section id="memahami-data">
+<h1><strong>Memahami Data</strong><a class="headerlink" href="#memahami-data" title="Link to this heading">#</a></h1>
+<section id="pengertian-data">
+<h2>1. Pengertian Data<a class="headerlink" href="#pengertian-data" title="Link to this heading">#</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Data adalah sekumpulan fakta mentah yang dapat diolah menjadi informasi bermakna.
+Sumber data bisa berasal dari:
+- Manusia
+- Mesin atau sensor
+- Media sosial
+- Sistem transaksi
+- Perangkat IoT
+Memahami jenis dan karakteristik data sangat penting sebelum melakukan analisis.
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="jenis-jenis-data">
+<h2>2. Jenis-Jenis Data<a class="headerlink" href="#jenis-jenis-data" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A. Data Terstruktur
+Data terstruktur adalah data yang tersusun dalam bentuk tabel (baris dan kolom), seperti pada Excel atau database.
+Contoh:</p></li>
+</ul>
+<ul>
+<li><p>Data mahasiswa</p></li>
+<li><p>Data pelanggan</p></li>
+<li><p>Data transaksi penjualan
+Dalam tabel, setiap kolom disebut
+<strong>atribut atau variabel</strong>.</p>
+<p><strong>Jenis Atribut pada Data Terstruktur:</strong></p>
+<p><strong>1. Nominal</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Kategori tanpa urutan.  
+  Contoh: jurusan, warna, jenis kelamin.
+</pre></div>
+</div>
+<p><strong>2. Biner</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Memiliki dua nilai saja.  
+  Contoh: 0/1, Ya/Tidak.
+</pre></div>
+</div>
+<p><strong>3. Ordinal</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Memiliki urutan, tetapi jaraknya tidak pasti.  
+  Contoh: rendah – sedang – tinggi.
+</pre></div>
+</div>
+<p><strong>4. Numerik</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Berupa angka yang dapat dihitung.  
+  Contoh: umur, tinggi badan, nilai ujian.
+</pre></div>
+</div>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>B. Data Tidak Terstruktur</p></li>
+</ul>
+<p>Data yang tidak memiliki format tabel tetap.</p>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>Email</p></li>
+<li><p>Artikel</p></li>
+<li><p>Dokumen teks</p></li>
+<li><p>Chat</p></li>
+</ul>
+<p>Biasanya perlu diproses terlebih dahulu sebelum dianalisis.</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>C. Data Bahasa Alami</p></li>
+</ul>
+<p>Data dalam bentuk teks bahasa manusia.</p>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>Komentar media sosial</p></li>
+<li><p>Review produk</p></li>
+<li><p>Berita</p></li>
+</ul>
+<p>Pengolahannya menggunakan teknik Natural Language Processing (NLP).</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>D. Data Buatan Mesin</p></li>
+</ul>
+<p>Data yang dihasilkan secara otomatis oleh sistem atau perangkat.</p>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>Log server</p></li>
+<li><p>Data sensor</p></li>
+<li><p>Data IoT</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>E. Data Berbasis Graph</p></li>
+</ul>
+<p>Data yang menunjukkan hubungan antar objek.</p>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>Jaringan pertemanan</p></li>
+<li><p>Relasi antar pengguna</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>F. Data Multimedia</p></li>
+</ul>
+<p>Berupa:</p>
+<ul class="simple">
+<li><p>Gambar</p></li>
+<li><p>Audio</p></li>
+<li><p>Video</p></li>
+</ul>
+<p>Memerlukan teknik khusus untuk diproses.</p>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>G. Data Streaming</p></li>
+</ul>
+<p>Data yang mengalir terus-menerus secara real-time.</p>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>Transaksi online</p></li>
+<li><p>Data sensor per detik</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="distribusi-data">
+<h2>DISTRIBUSI DATA<a class="headerlink" href="#distribusi-data" title="Link to this heading">#</a></h2>
+<p>Distribusi data menunjukkan bagaimana nilai dalam dataset tersebar.</p>
+<p>Salah satu distribusi yang sering ditemui adalah distribusi normal (berbentuk kurva lonceng), di mana sebagian besar nilai berada di sekitar rata-rata.</p>
+<p><strong>Rumus distribusi normal:</strong></p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{\sigma \sqrt{2\pi}}
+e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+\]</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span> = rata-rata</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma\)</span> = standar deviasi</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma^2\)</span> = variansi</p></li>
+<li><p><span class="math notranslate nohighlight">\(\pi\)</span> = 3.14159</p></li>
+<li><p><span class="math notranslate nohighlight">\(e\)</span> = 2.718</p></li>
+</ul>
+<p>Distribusi membantu kita memahami:</p>
+<ul class="simple">
+<li><p>Keseimbangan data</p></li>
+<li><p>Kemiringan distribusi</p></li>
+<li><p>Keberadaan nilai ekstrem (outlier)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="statistik-deskriptif">
+<h2>Statistik Deskriptif<a class="headerlink" href="#statistik-deskriptif" title="Link to this heading">#</a></h2>
+<p>Statistik deskriptif digunakan untuk merangkum data numerik.</p>
+</section>
+<section id="a-ukuran-pemusatan">
+<h2>A. Ukuran Pemusatan<a class="headerlink" href="#a-ukuran-pemusatan" title="Link to this heading">#</a></h2>
+<section id="mean">
+<h3>1. Mean<a class="headerlink" href="#mean" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\]</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\bar{x}\)</span> = rata-rata</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> = jumlah data</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> = data ke-i</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="median">
+<h3>2. Median<a class="headerlink" href="#median" title="Link to this heading">#</a></h3>
+<p>Jika jumlah data ganjil:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Median} = x_{\frac{n+1}{2}}
+\]</div>
+<p>Jika jumlah data genap:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Median} = \frac{x_{\frac{n}{2}} + x_{\frac{n}{2}+1}}{2}
+\]</div>
+<p>Median data berkelompok:</p>
+<div class="math notranslate nohighlight">
+\[
+Me = L + \left( \frac{\frac{n}{2} - F}{f} \right) p
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="modus">
+<h3>3. Modus<a class="headerlink" href="#modus" title="Link to this heading">#</a></h3>
+<p>Nilai yang paling sering muncul dalam data.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="b-ukuran-penyebaran">
+<h2>B. Ukuran Penyebaran<a class="headerlink" href="#b-ukuran-penyebaran" title="Link to this heading">#</a></h2>
+<section id="range">
+<h3>1. Range<a class="headerlink" href="#range" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+\text{Range} = X_{max} - X_{min}
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="kuartil">
+<h3>2. Kuartil<a class="headerlink" href="#kuartil" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_1\)</span> = kuartil bawah</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_2\)</span> = median</p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_3\)</span> = kuartil atas</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="interquartile-range">
+<h3>3. Interquartile Range<a class="headerlink" href="#interquartile-range" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[
+IQR = Q_3 - Q_1
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="variansi">
+<h3>4. Variansi<a class="headerlink" href="#variansi" title="Link to this heading">#</a></h3>
+<p>Populasi:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma^2 = \frac{1}{N} \sum (x_i - \mu)^2
+\]</div>
+<p>Sampel:</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{n-1} \sum (x_i - \bar{x})^2
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="standar-deviasi">
+<h3>5. Standar Deviasi<a class="headerlink" href="#standar-deviasi" title="Link to this heading">#</a></h3>
+<p>Populasi:</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma = \sqrt{\sigma^2}
+\]</div>
+<p>Sampel:</p>
+<div class="math notranslate nohighlight">
+\[
+s = \sqrt{s^2}
+\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="skewness-kemencengan">
+<h2>Skewness (Kemencengan)<a class="headerlink" href="#skewness-kemencengan" title="Link to this heading">#</a></h2>
+<p>Skewness menunjukkan arah kemiringan distribusi data.</p>
+<p><strong>1. Skewness Positif</strong></p>
+<ul class="simple">
+<li><p>Ekor lebih panjang di kanan</p></li>
+<li><p>Mean &gt; Median &gt; Modus</p></li>
+</ul>
+<p><strong>2. Skewness Negatif</strong></p>
+<ul class="simple">
+<li><p>Ekor lebih panjang di kiri</p></li>
+<li><p>Mean &lt; Median &lt; Modus</p></li>
+</ul>
+<p><strong>3. Distribusi Simetris</strong></p>
+<ul class="simple">
+<li><p>Mean = Median = Modus</p></li>
+</ul>
+<p>Rumus skewness populasi:</p>
+<div class="math notranslate nohighlight">
+\[
+\gamma_1 = \frac{\frac{1}{N} \sum (x_i - \mu)^3}{\sigma^3}
+\]</div>
+<p>Interpretasi:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\gamma_1 &gt; 0\)</span> → miring ke kanan</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma_1 &lt; 0\)</span> → miring ke kiri</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma_1 = 0\)</span> → simetris</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Pengantar Data Mining</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keunggulan-data-mining">Keunggulan Data Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar-data-mining">1. Konsep Dasar Data Mining</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbedaan-statistik-tradisional-dan-data-mining">2. Perbedaan Statistik Tradisional dan Data Mining</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#memahami-data"><strong>Memahami Data</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-data">1. Pengertian Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-data">2. Jenis-Jenis Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribusi-data">DISTRIBUSI DATA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistik-deskriptif">Statistik Deskriptif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-ukuran-pemusatan">A. Ukuran Pemusatan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean">1. Mean</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#median">2. Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modus">3. Modus</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-ukuran-penyebaran">B. Ukuran Penyebaran</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range">1. Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kuartil">2. Kuartil</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interquartile-range">3. Interquartile Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variansi">4. Variansi</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standar-deviasi">5. Standar Deviasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness-kemencengan">Skewness (Kemencengan)</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mohammad Waqidi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
