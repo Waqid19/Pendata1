@@ -89,11 +89,6 @@ Using cached importlib_resources-6.5.2-py3-none-any.whl (37 kB)
 Using cached kiwisolver-1.4.7-cp39-cp39-win_amd64.whl (55 kB)
 Using cached pandas-2.3.3-cp39-cp39-win_amd64.whl (11.4 MB)
 Using cached scipy-1.13.1-cp39-cp39-win_amd64.whl (46.2 MB)
-Installing collected packages: scipy, kiwisolver, importlib-resources, fonttools, cycler, contourpy, pandas, matplotlib, gower, seaborn
-
-   ----------------------------------------  0/10 [scipy]
-   ----------------------------------------  0/10 [scipy]
-   ----------------------------------------  0/10 [scipy]
 ----- stderr -----
 ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
 ------------------
