@@ -1060,260 +1060,37 @@ Orange menghasilkan matriks jarak berukuran 1000 × 1000, menunjukkan jarak seti
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gower
-  Using cached gower-0.1.2-py3-none-any.whl.metadata (3.7 kB)
-Collecting seaborn
-  Using cached seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gower in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (0.1.2)
+Requirement already satisfied: seaborn in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (0.13.2)
 Requirement already satisfied: numpy in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from gower) (1.26.4)
 Requirement already satisfied: scipy in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from gower) (1.13.1)
 Requirement already satisfied: pandas&gt;=1.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from seaborn) (2.3.3)
-Collecting matplotlib!=3.6.1,&gt;=3.4 (from seaborn)
-  Using cached matplotlib-3.9.4-cp39-cp39-win_amd64.whl.metadata (11 kB)
-Collecting contourpy&gt;=1.0.1 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached contourpy-1.3.0-cp39-cp39-win_amd64.whl.metadata (5.4 kB)
-Collecting cycler&gt;=0.10 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
-Collecting fonttools&gt;=4.22.0 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached fonttools-4.60.2-cp39-cp39-win_amd64.whl.metadata (115 kB)
-Collecting kiwisolver&gt;=1.3.1 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached kiwisolver-1.4.7-cp39-cp39-win_amd64.whl.metadata (6.4 kB)
+Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from seaborn) (3.9.4)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.3.0)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.60.2)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.4.7)
 Requirement already satisfied: packaging&gt;=20.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (26.0)
 Requirement already satisfied: pillow&gt;=8 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (11.3.0)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.3.2)
 Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (2.9.0.post0)
-Collecting importlib-resources&gt;=3.2.0 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached importlib_resources-6.5.2-py3-none-any.whl.metadata (3.9 kB)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (6.5.2)
 Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.23.0)
 Requirement already satisfied: pytz&gt;=2020.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas&gt;=1.2-&gt;seaborn) (2026.1.post1)
 Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas&gt;=1.2-&gt;seaborn) (2026.1)
 Requirement already satisfied: six&gt;=1.5 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.17.0)
-Using cached gower-0.1.2-py3-none-any.whl (5.2 kB)
-Using cached seaborn-0.13.2-py3-none-any.whl (294 kB)
-Using cached matplotlib-3.9.4-cp39-cp39-win_amd64.whl (7.8 MB)
-Using cached contourpy-1.3.0-cp39-cp39-win_amd64.whl (211 kB)
-Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
-Using cached fonttools-4.60.2-cp39-cp39-win_amd64.whl (1.5 MB)
-Using cached importlib_resources-6.5.2-py3-none-any.whl (37 kB)
-Using cached kiwisolver-1.4.7-cp39-cp39-win_amd64.whl (55 kB)
-Installing collected packages: kiwisolver, importlib-resources, fonttools, cycler, contourpy, matplotlib, gower, seaborn
-
-   ----- ---------------------------------- 1/8 [importlib-resources]
-   ----- ---------------------------------- 1/8 [importlib-resources]
-   ----- ---------------------------------- 1/8 [importlib-resources]
-   ----- ---------------------------------- 1/8 [importlib-resources]
-   ----- ---------------------------------- 1/8 [importlib-resources]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   ---------- ----------------------------- 2/8 [fonttools]
-   --------------- ------------------------ 3/8 [cycler]
-   -------------------- ------------------- 4/8 [contourpy]
-   -------------------- ------------------- 4/8 [contourpy]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ------------------------- -------------- 5/8 [matplotlib]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ----------------------------------- ---- 7/8 [seaborn]
-   ---------------------------------------- 8/8 [seaborn]
-
-Successfully installed contourpy-1.3.0 cycler-0.12.1 fonttools-4.60.2 gower-0.1.2 importlib-resources-6.5.2 kiwisolver-1.4.7 matplotlib-3.9.4 seaborn-0.13.2
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">gower</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">files</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">uploaded</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">filename</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">uploaded</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Import seaborn objects</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.rcmod</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">rcmod</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Control plot style and scaling using the matplotlib rcParams interface.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">cycler</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycler</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">palettes</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python39</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">matplotlib</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">970</span>
-<span class="g g-Whitespace">    </span><span class="mi">964</span>     <span class="k">return</span> <span class="n">config</span>
-<span class="g g-Whitespace">    </span><span class="mi">967</span> <span class="c1"># When constructing the global instances, we need to perform certain updates</span>
-<span class="g g-Whitespace">    </span><span class="mi">968</span> <span class="c1"># by explicitly calling the superclass (dict.update, dict.items) to avoid</span>
-<span class="g g-Whitespace">    </span><span class="mi">969</span> <span class="c1"># triggering resolution of _auto_backend_sentinel.</span>
-<span class="ne">--&gt; </span><span class="mi">970</span> <span class="n">rcParamsDefault</span> <span class="o">=</span> <span class="n">_rc_params_in_file</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="n">cbook</span><span class="o">.</span><span class="n">_get_data_path</span><span class="p">(</span><span class="s2">&quot;matplotlibrc&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">972</span>     <span class="c1"># Strip leading comment.</span>
-<span class="g g-Whitespace">    </span><span class="mi">973</span>     <span class="n">transform</span><span class="o">=</span><span class="k">lambda</span> <span class="n">line</span><span class="p">:</span> <span class="n">line</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="n">line</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">974</span>     <span class="n">fail_on_error</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">975</span> <span class="nb">dict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">rcParamsDefault</span><span class="p">,</span> <span class="n">rcsetup</span><span class="o">.</span><span class="n">_hardcoded_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">976</span> <span class="c1"># Normally, the default matplotlibrc file contains *no* entry for backend (the</span>
-<span class="g g-Whitespace">    </span><span class="mi">977</span> <span class="c1"># corresponding line starts with ##, not #; we fill on _auto_backend_sentinel</span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span> <span class="c1"># in that case.  However, packagers can set a different default backend</span>
-<span class="g g-Whitespace">    </span><span class="mi">979</span> <span class="c1"># (resulting in a normal `#backend: foo` line) in which case we should *not*</span>
-<span class="g g-Whitespace">    </span><span class="mi">980</span> <span class="c1"># fill in _auto_backend_sentinel.</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\__init__.py:873,</span> in <span class="ni">_rc_params_in_file</span><span class="nt">(fname, transform, fail_on_error)</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span> <span class="n">rc_temp</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="ne">--&gt; </span><span class="mi">873</span> <span class="k">with</span> <span class="n">_open_file_or_url</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>         <span class="k">for</span> <span class="n">line_no</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\contextlib.py:117,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">117</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\site-packages\matplotlib\__init__.py:850,</span> in <span class="ni">_open_file_or_url</span><span class="nt">(fname)</span>
-<span class="g g-Whitespace">    </span><span class="mi">848</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">849</span>     <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">850</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">851</span>         <span class="k">yield</span> <span class="n">f</span>
-
-<span class="nn">File ~\AppData\Local\Programs\Python\Python39\lib\codecs.py:309,</span> in <span class="ni">BufferedIncrementalDecoder.__init__</span><span class="nt">(self, errors)</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">class</span><span class="w"> </span><span class="nc">BufferedIncrementalDecoder</span><span class="p">(</span><span class="n">IncrementalDecoder</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span><span class="sd">     This subclass of IncrementalDecoder can be used as the baseclass for an</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span><span class="sd">     incremental decoder if the decoder must be able to handle incomplete</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span><span class="sd">     byte sequences.</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">309</span>     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;strict&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>         <span class="n">IncrementalDecoder</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span>         <span class="c1"># undecoded input that is kept between calls to decode()</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
 </pre></div>
 </div>
 </div>
