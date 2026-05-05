@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Mohammad Waqidi &#8212; My sample book</title>
+    <title>Klasifikasi Diabetes Menggunakan Gaussian Naive Bayes: Integrasi KNIME &amp; Scikit-Learn &#8212; My sample book</title>
   
   
   
@@ -62,10 +62,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'NaiveBayes';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Pendahuluan" href="pendahuluan.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -148,7 +147,7 @@ const thebe_selector_output = ".output, .cell_output"
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -168,8 +167,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Mohammad Waqidi
                 </a>
             </li>
@@ -283,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNaiveBayes.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/NaiveBayes.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -384,7 +383,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -395,11 +396,28 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Mohammad Waqidi</h1>
+    <h1>Klasifikasi Diabetes Menggunakan Gaussian Naive Bayes: Integrasi KNIME & Scikit-Learn</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arsitektur-workflow">1. Arsitektur Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-implementasi">2. Langkah-Langkah Implementasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pre-processing-data">A. Pre-processing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-partitioning">B. Data Partitioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-implementasi-gaussian-naive-bayes-python">C. Implementasi Gaussian Naive Bayes (Python)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-evaluasi-model">D. Evaluasi Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-hasil">E. Hasil</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">3. Kesimpulan</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -409,17 +427,74 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="mohammad-waqidi">
-<h1>Mohammad Waqidi<a class="headerlink" href="#mohammad-waqidi" title="Permalink to this heading">#</a></h1>
-<p>NIM 240411100224.</p>
-<p>Kelas Penambangan Data IF-4B</p>
-<p>Github : Waqid19</p>
-<p>Selamat datang di Jupyter Book saya.</p>
-<p>Haloo, Everyone</p>
-<p>Perkenalkan, Nama Saya Waqid. Saat ini saya merupakan mahasiswa Informatika yang memiliki ketertarikan pada bidang teknologi dan pengembangan sistem informasi. Saya memiliki semangat untuk terus belajar dan mengembangkan kemampuan, baik dalam aspek teknis maupun pemecahan masalah.</p>
-<p>Saya terbiasa bekerja secara mandiri maupun dalam tim, serta berkomitmen untuk menyelesaikan setiap tanggung jawab dengan disiplin dan integritas. Ke depan, saya berharap dapat terus meningkatkan kompetensi serta memberikan kontribusi yang positif melalui keahlian yang saya miliki.</p>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="klasifikasi-diabetes-menggunakan-gaussian-naive-bayes-integrasi-knime-scikit-learn">
+<h1>Klasifikasi Diabetes Menggunakan Gaussian Naive Bayes: Integrasi KNIME &amp; Scikit-Learn<a class="headerlink" href="#klasifikasi-diabetes-menggunakan-gaussian-naive-bayes-integrasi-knime-scikit-learn" title="Permalink to this heading">#</a></h1>
+<p>Laporan ini mendokumentasikan proses implementasi model pembelajaran mesin untuk memprediksi status diabetes pada pasien berdasarkan dataset <strong>diabetes_2.csv</strong>. Proyek ini menggabungkan kemudahan visual workflow dari <strong>KNIME Analytics Platform</strong> dengan fleksibilitas library <strong>Scikit-Learn (Python)</strong>.</p>
+<section id="arsitektur-workflow">
+<h2>1. Arsitektur Workflow<a class="headerlink" href="#arsitektur-workflow" title="Permalink to this heading">#</a></h2>
+<p>Workflow yang dibangun terdiri dari beberapa tahapan utama: Pre-processing, Data Partitioning, Modeling, dan Evaluation.</p>
+<p><img alt="Integrasi KNIME dan Python" src="_images/workflowDiabetes.png" /></p>
+<p><em>Gambar: Alur kerja (workflow) lengkap di KNIME.</em></p>
+</section>
+<section id="langkah-langkah-implementasi">
+<h2>2. Langkah-Langkah Implementasi<a class="headerlink" href="#langkah-langkah-implementasi" title="Permalink to this heading">#</a></h2>
+<section id="a-pre-processing-data">
+<h3>A. Pre-processing Data<a class="headerlink" href="#a-pre-processing-data" title="Permalink to this heading">#</a></h3>
+<p>Sebelum masuk ke tahap pemodelan, data harus dibersihkan untuk memastikan kualitas prediksi:</p>
+<ol class="arabic simple">
+<li><p><strong>Missing Value Handling</strong>: Menggunakan teknik imputasi <strong>Median</strong> untuk tipe data <em>Integer</em> dan <em>Float</em>. Median dipilih karena lebih stabil terhadap pencilan (outlier) dibandingkan rata-rata.
+<img alt="Integrasi KNIME dan Python" src="_images/MisngValueHandling.png" /></p></li>
+</ol>
+<p><em>Gambar: Missing Value.</em></p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Data Transformation</strong>: Menggunakan node <strong>Number to String</strong> untuk mengubah kolom <code class="docutils literal notranslate"><span class="pre">Outcome</span></code> menjadi tipe data kategorikal (String). Fitur lainnya tetap dipertahankan dalam bentuk numerik agar sesuai dengan algoritma Gaussian.
+<img alt="Integrasi KNIME dan Python" src="_images/DataPartitioning.png" /></p></li>
+</ol>
+<p><em>Gambar: Data Transformation.</em></p>
+</section>
+<section id="b-data-partitioning">
+<h3>B. Data Partitioning<a class="headerlink" href="#b-data-partitioning" title="Permalink to this heading">#</a></h3>
+<p>Data dibagi menggunakan node <strong>Table Partitioner</strong> dengan rasio <strong>70% Training</strong> dan <strong>30% Testing</strong>. Teknik sampling yang digunakan adalah <strong>Stratified Sampling</strong> pada kolom <code class="docutils literal notranslate"><span class="pre">Outcome</span></code> untuk menjaga keseimbangan proporsi kelas target.
+<img alt="Integrasi KNIME dan Python" src="_images/DataPartitioning.png" /></p>
+<p><em>Gambar: Data Partitioning.</em></p>
+</section>
+<section id="c-implementasi-gaussian-naive-bayes-python">
+<h3>C. Implementasi Gaussian Naive Bayes (Python)<a class="headerlink" href="#c-implementasi-gaussian-naive-bayes-python" title="Permalink to this heading">#</a></h3>
+<p>Modeling dilakukan menggunakan library <code class="docutils literal notranslate"><span class="pre">sklearn.naive_bayes</span></code> melalui node <strong>Python Script (legacy)</strong>. Algoritma Gaussian Naive Bayes sangat cocok karena sebagian besar fitur medis dalam dataset ini bersifat kontinu.
+<img alt="Integrasi KNIME dan Python" src="_images/PythonScript.png" /></p>
+<p><em>Gambar: Python Script.</em></p>
+<p><strong>Cuplikan Kode Utama:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.naive_bayes</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianNB</span>
+
+<span class="c1"># Inisialisasi model sesuai standar API Scikit-Learn</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+
+<span class="c1"># Melatih model menggunakan data training</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data testing</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
 </div>
+</section>
+<section id="d-evaluasi-model">
+<h3>D. Evaluasi Model<a class="headerlink" href="#d-evaluasi-model" title="Permalink to this heading">#</a></h3>
+<p>Evaluasi dilakukan menggunakan node Scorer dengan membandingkan nilai aktual pada kolom Outcome terhadap nilai Prediction (Outcome).</p>
+<p><img alt="Integrasi KNIME dan Python" src="_images/EvaluasiModel.png" /></p>
+<p><em>Gambar: Evaluasi Model.</em></p>
+</section>
+<section id="e-hasil">
+<h3>E. Hasil<a class="headerlink" href="#e-hasil" title="Permalink to this heading">#</a></h3>
+<p>Setelah melakukan langkah-langkah di atas maka di hasilkan Confusion Matrix seperti berikut
+<img alt="Integrasi KNIME dan Python" src="_images/ConfusionMatrix.png" /></p>
+<p><em>Gambar: Confusion Matrix.</em></p>
+</section>
+</section>
+<section id="kesimpulan">
+<h2>3. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
+<p>Melalui integrasi ini, kita dapat memanfaatkan kekuatan pemrosesan data KNIME yang terstruktur dan menerapkannya langsung ke fungsi API Scikit-Learn yang kuat. Penggunaan GaussianNB memberikan dasar yang kuat untuk analisis prediktif pada data kesehatan yang memiliki distribusi normal.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -452,21 +527,36 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="pendahuluan.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Pendahuluan</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arsitektur-workflow">1. Arsitektur Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-implementasi">2. Langkah-Langkah Implementasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-pre-processing-data">A. Pre-processing Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-partitioning">B. Data Partitioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-implementasi-gaussian-naive-bayes-python">C. Implementasi Gaussian Naive Bayes (Python)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-evaluasi-model">D. Evaluasi Model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-hasil">E. Hasil</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">3. Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

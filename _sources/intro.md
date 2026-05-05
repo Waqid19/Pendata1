@@ -1,8 +1,8 @@
-# Mohammad WAqidi
+# Mohammad Waqidi
 
 NIM 240411100224.
 
-Kelas Penambangan Data IF-4A
+Kelas Penambangan Data IF-4B
 
 Github : Waqid19
 
