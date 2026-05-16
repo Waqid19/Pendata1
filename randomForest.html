@@ -1,0 +1,701 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Klasifikasi Maternal Health Risk Menggunakan Random Forest (Python) dan Decision Tree pada KNIME &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'randomForest';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Pertemuan_7" href="pertemuan_7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/foto.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="_static/foto.jpeg" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Mohammad Waqidi
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pendahuluan.html">Pendahuluan</a></li>
+
+
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="pertemuan_1.html">Pertemuan_1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="eksplorasi_data.html">Eksplorasi Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="description_data.html">Description Data</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="visualisasi_data.html">Visualisasi Data</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pertemuan_2.html">Pertemuan_2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="mengukur_jarak.html">MENGUKUR JARAK (SIMILARITY &amp; DISSIMILARITY)</a></li>
+
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pertemuan_3.html">Pertemuan_3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="normalisasi_data.html">Normalisasi Data (Preprocessing)</a></li>
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pertemuan_4.html">Pertemuan_4</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="UTS.html">Ujian Tengah Semester</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pertemuan_5.html">Pertemuan_5</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="NaiveBayes.html">Klasifikasi Diabetes Menggunakan Gaussian Naive Bayes: Integrasi KNIME &amp; Scikit-Learn</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pertemuan_6.html">Pertemuan_6</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="DecisionTree.html">Analisa Data Menggunakan Pohon Keputusan (Decision Tree)</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="pertemuan_7.html">Pertemuan_7</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Klasifikasi Maternal Health Risk Menggunakan Random Forest (Python) dan Decision Tree pada KNIME</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FrandomForest.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/randomForest.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Klasifikasi Maternal Health Risk Menggunakan Random Forest (Python) dan Decision Tree pada KNIME</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arsitektur-komponen-dan-alur-kerja-workflow">1. Arsitektur Komponen dan Alur Kerja (Workflow)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rincian-node-dan-panduan-konfigurasi">2. Rincian Node dan Panduan Konfigurasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-node-1-csv-reader">A. Node 1: CSV Reader</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-node-2-partitioning">B. Node 2: Partitioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-node-3-python-script-legacy-bertindak-sebagai-learner">C. Node 3: Python Script (legacy) — Bertindak sebagai “Learner”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-node-4-python-script-legacy-bertindak-sebagai-predictor">D. Node 4: Python Script (legacy) — Bertindak sebagai “Predictor”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-node-5-scorer">E. Node 5: Scorer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-perbandingan-hasil-prediksi">3. Evaluasi Perbandingan Hasil Prediksi</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="klasifikasi-maternal-health-risk-menggunakan-random-forest-python-dan-decision-tree-pada-knime">
+<h1>Klasifikasi Maternal Health Risk Menggunakan Random Forest (Python) dan Decision Tree pada KNIME<a class="headerlink" href="#klasifikasi-maternal-health-risk-menggunakan-random-forest-python-dan-decision-tree-pada-knime" title="Permalink to this heading">#</a></h1>
+<p>Laporan ini menyajikan panduan implementasi, konfigurasi node, serta analisis komparasi antara algoritma <strong>Random Forest</strong> (via skrip Python eksternal) dan <strong>Decision Tree</strong> (node bawaan KNIME) untuk memprediksi tingkat risiko kesehatan ibu hamil.</p>
+<hr class="docutils" />
+<section id="arsitektur-komponen-dan-alur-kerja-workflow">
+<h2>1. Arsitektur Komponen dan Alur Kerja (Workflow)<a class="headerlink" href="#arsitektur-komponen-dan-alur-kerja-workflow" title="Permalink to this heading">#</a></h2>
+<p><img alt="Workflow" src="_images/img1.png" /></p>
+<p>Eksperimen dirancang secara paralel untuk membandingkan model berbasis <em>ensemble learning</em> (Python) dengan model pohon tunggal (KNIME). Data dibagi menggunakan rasio <strong>80% untuk Pelatihan (Training)</strong> dan <strong>20% untuk Pengujian (Testing)</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="rincian-node-dan-panduan-konfigurasi">
+<h2>2. Rincian Node dan Panduan Konfigurasi<a class="headerlink" href="#rincian-node-dan-panduan-konfigurasi" title="Permalink to this heading">#</a></h2>
+<p>Berikut adalah daftar node yang wajib dimasukkan ke dalam lembar kerja KNIME beserta langkah-langkah pengaturannya:</p>
+<section id="a-node-1-csv-reader">
+<h3>A. Node 1: CSV Reader<a class="headerlink" href="#a-node-1-csv-reader" title="Permalink to this heading">#</a></h3>
+<p><img alt="CSV Reader " src="_images/image2.png" /></p>
+<ul class="simple">
+<li><p><strong>Fungsi:</strong> Memuat dataset <em>Maternal Health Risk</em> (<code class="docutils literal notranslate"><span class="pre">data.csv</span></code>) ke dalam KNIME.</p></li>
+<li><p><strong>Konfigurasi Utama:</strong> 1. Klik ganda node, lalu pada bagian <strong>Browse</strong>, arahkan ke file dataset kamu.
+2. Pastikan opsi <em>Has Header</em> tercentang agar baris pertama terbaca sebagai nama kolom (<code class="docutils literal notranslate"><span class="pre">Age</span></code>, <code class="docutils literal notranslate"><span class="pre">SystolicBP</span></code>, dll).</p></li>
+</ul>
+</section>
+<section id="b-node-2-partitioning">
+<h3>B. Node 2: Partitioning<a class="headerlink" href="#b-node-2-partitioning" title="Permalink to this heading">#</a></h3>
+<p><img alt="Scorer" src="_images/img2.png" /></p>
+<ul class="simple">
+<li><p><strong>Fungsi:</strong> Memisahkan data secara acak menjadi data latih dan data uji.</p></li>
+<li><p><strong>Konfigurasi Utama:</strong></p>
+<ol class="arabic simple">
+<li><p>Buka konfigurasi node, pilih opsi <strong>Relative (%)</strong> dan isi dengan angka <code class="docutils literal notranslate"><span class="pre">80</span></code>.</p></li>
+<li><p>Centang opsi <strong>Draw randomly</strong> agar pembagian data dilakukan secara acak dan adil.</p></li>
+<li><p>Output port bagian atas (80%) dihubungkan ke jalur <em>Training</em>, sedangkan output port bagian bawah (20%) dihubungkan ke jalur <em>Testing</em>.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="c-node-3-python-script-legacy-bertindak-sebagai-learner">
+<h3>C. Node 3: Python Script (legacy) — Bertindak sebagai “Learner”<a class="headerlink" href="#c-node-3-python-script-legacy-bertindak-sebagai-learner" title="Permalink to this heading">#</a></h3>
+<p><img alt="Learner" src="_images/img3.png" /></p>
+<ul class="simple">
+<li><p><strong>Fungsi:</strong> Menerima data training 80%, mengekstrak fitur, dan melatih model Random Forest menggunakan pustaka <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>.</p></li>
+<li><p><strong>Konfigurasi Port:</strong> Menggunakan bawaan (1 Input Port Data, 1 Output Port Data).</p></li>
+<li><p><strong>Konfigurasi Skrip:</strong> Salin kode berikut ke dalam editor skrip:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+
+<span class="c1"># 1. Membaca tabel input KNIME</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">input_table_1</span>
+
+<span class="c1"># 2. Pemisahan Fitur dan Target (RiskLevel)</span>
+<span class="n">target_column</span> <span class="o">=</span> <span class="s1">&#39;RiskLevel&#39;</span> 
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">target_column</span><span class="p">])</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="n">target_column</span><span class="p">]</span>
+
+<span class="c1"># 3. Model Fitting dengan 100 Trees</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># 4. Ambil informasi nama kolom</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># 5. Serialisasi objek model menjadi text biner string</span>
+<span class="n">model_serialized</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">model</span><span class="p">))</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">features_serialized</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># 6. Salurkan ke output_table_1</span>
+<span class="n">output_table_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;serialized_model&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">model_serialized</span><span class="p">],</span>
+    <span class="s1">&#39;feature_names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">features_serialized</span><span class="p">],</span>
+    <span class="s1">&#39;target_column&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">target_column</span><span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</section>
+<section id="d-node-4-python-script-legacy-bertindak-sebagai-predictor">
+<h3>D. Node 4: Python Script (legacy) — Bertindak sebagai “Predictor”<a class="headerlink" href="#d-node-4-python-script-legacy-bertindak-sebagai-predictor" title="Permalink to this heading">#</a></h3>
+<p><img alt="Predictor" src="_images/img4.png" /></p>
+<ul class="simple">
+<li><p><strong>Fungsi:</strong> Membongkar bungkusan biner model dari Learner dan mengeksekusi prediksi pada data test (20%).</p></li>
+<li><p><strong>Konfigurasi Port (CRITICAL):</strong> 1. Klik kanan node pada workflow -&gt; pilih <strong>Dynamic Ports</strong> -&gt; klik <strong>Add Input Port</strong>.
+2. Hubungkan <strong>Input Port 1 (Atas)</strong> ke output milik Python Learner.
+3. Hubungkan <strong>Input Port 2 (Bawah)</strong> ke output bawah (data test 20%) milik node Partitioning.</p></li>
+<li><p><strong>Konfigurasi Skrip:</strong> Salin kode berikut ke dalam editor skrip:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+
+<span class="c1"># 1. Ambil model biner dari port 1 dan lakukan decoding</span>
+<span class="n">model_table</span> <span class="o">=</span> <span class="n">input_table_1</span>
+<span class="n">model_serialized</span> <span class="o">=</span> <span class="n">model_table</span><span class="p">[</span><span class="s1">&#39;serialized_model&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">model_table</span><span class="p">[</span><span class="s1">&#39;feature_names&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">target_column</span> <span class="o">=</span> <span class="n">model_table</span><span class="p">[</span><span class="s1">&#39;target_column&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">model_serialized</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)))</span>
+
+<span class="c1"># 2. Ambil data testing asli dari port 2</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">input_table_2</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="n">feature_names</span><span class="p">]</span>
+
+<span class="c1"># 3. Klasifikasi Prediksi</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># 4. Gabungkan hasil tebakan ke tabel</span>
+<span class="n">output_table_1</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">output_table_1</span><span class="p">[</span><span class="s1">&#39;Prediction (Random Forest)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predictions</span>
+</pre></div>
+</div>
+</section>
+<section id="e-node-5-scorer">
+<h3>E. Node 5: Scorer<a class="headerlink" href="#e-node-5-scorer" title="Permalink to this heading">#</a></h3>
+<p><img alt="Scorer" src="_images/img6.png" /></p>
+<ul class="simple">
+<li><p><strong>Fungsi:</strong> Menguji performa, memunculkan akurasi global, dan menampilkan matriks kesalahan (<em>Confusion Matrix</em>).</p></li>
+<li><p><strong>Konfigurasi Utama:</strong></p>
+<ul>
+<li><p><strong>First Column (Actual):</strong> Pilih kolom target asli (<code class="docutils literal notranslate"><span class="pre">RiskLevel</span></code>).</p></li>
+<li><p><strong>Second Column (Predicted):</strong> Pilih kolom hasil tebakan model (misal: <code class="docutils literal notranslate"><span class="pre">Prediction</span> <span class="pre">(Random</span> <span class="pre">Forest)</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="evaluasi-perbandingan-hasil-prediksi">
+<h2>3. Evaluasi Perbandingan Hasil Prediksi<a class="headerlink" href="#evaluasi-perbandingan-hasil-prediksi" title="Permalink to this heading">#</a></h2>
+<p>Setelah kedua model dieksekusi secara paralel pada data testing yang sama, diperoleh kesimpulan performa sebagai berikut:</p>
+<ul class="simple">
+<li><p><strong>Decision Tree (Single Tree):</strong> Memiliki keunggulan mudah dibaca secara visual dalam bentuk grafik pohon (<em>Tree View</em>), namun akurasinya cenderung lebih rendah (60.018%**) karena sifatnya yang sensitif terhadap pencilan data (<em>noise</em>) dan rentan terkena gejala <em>overfitting</em>.</p></li>
+</ul>
+<p><img alt="Confuison Matrix" src="_images/img7.png" /></p>
+<ul class="simple">
+<li><p><strong>Random Forest (Ensemble):</strong> Melalui skema penggabungan tebakan dari 100 pohon keputusan secara acak, model ini sukses mengeliminasi kelemahan pohon tunggal. Hasilnya, akurasi prediksi meningkat secara konsisten pada rentang <strong>90.893%</strong>, menjadikannya model yang jauh lebih kokoh (<em>robust</em>) untuk diimplementasikan pada sistem prediksi medis ini.</p></li>
+</ul>
+<p><img alt="Confuison Matrix" src="_images/img6.png" /></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pertemuan_7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Pertemuan_7</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arsitektur-komponen-dan-alur-kerja-workflow">1. Arsitektur Komponen dan Alur Kerja (Workflow)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rincian-node-dan-panduan-konfigurasi">2. Rincian Node dan Panduan Konfigurasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-node-1-csv-reader">A. Node 1: CSV Reader</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-node-2-partitioning">B. Node 2: Partitioning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-node-3-python-script-legacy-bertindak-sebagai-learner">C. Node 3: Python Script (legacy) — Bertindak sebagai “Learner”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-node-4-python-script-legacy-bertindak-sebagai-predictor">D. Node 4: Python Script (legacy) — Bertindak sebagai “Predictor”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#e-node-5-scorer">E. Node 5: Scorer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi-perbandingan-hasil-prediksi">3. Evaluasi Perbandingan Hasil Prediksi</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mohammad Waqidi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
