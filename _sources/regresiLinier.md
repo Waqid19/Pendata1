@@ -3,9 +3,9 @@
 
 ---
 
-# 1. DATASET 
+## 1. DATASET 
 
-## A. Data Awal (Training Data)
+### A. Data Awal (Training Data)
 
 Data di bawah ini adalah data historis yang digunakan untuk melatih model dan mencari garis tren regresi linear terbaik.
 
@@ -19,7 +19,7 @@ Data di bawah ini adalah data historis yang digunakan untuk melatih model dan me
 | 6 | 4 | 5 |
 | 7 | 5 | 6 |
 
-## B. Data Prediksi (Test Data)
+### B. Data Prediksi (Test Data)
 
 Data di bawah ini merupakan nilai X baru yang ingin dicari prediksi nilai Y-nya berdasarkan model yang terbentuk.
 
@@ -30,7 +30,7 @@ Data di bawah ini merupakan nilai X baru yang ingin dicari prediksi nilai Y-nya 
 
 ---
 
-# 2. PERHITUNGAN SECARA ANALITIK (MATRIKS)
+## 2. PERHITUNGAN SECARA ANALITIK (MATRIKS)
 
 Perhitungan koefisien regresi menggunakan metode **Ordinary Least Squares (OLS)** dengan rumus berbasis manipulasi matriks:
 
@@ -48,7 +48,7 @@ $$
 \end{bmatrix}
 $$
 
-## Langkah 1: Menyusun Matriks X dan Vektor Y
+### Langkah 1: Menyusun Matriks X dan Vektor Y
 
 Kolom pertama pada matriks $X$ diisi dengan angka 1 sebagai komponen pengali untuk intersep ($\beta_0$).
 
@@ -76,7 +76,7 @@ Y =
 \end{bmatrix}
 $$
 
-## Langkah 2: Menghitung Transpose Matriks X ($X^T$)
+### Langkah 2: Menghitung Transpose Matriks X ($X^T$)
 
 $$
 X^T =
@@ -86,7 +86,7 @@ X^T =
 \end{bmatrix}
 $$
 
-## Langkah 3: Menghitung Perkalian Matriks $X^T X$
+### Langkah 3: Menghitung Perkalian Matriks $X^T X$
 
 $$
 X^T X =
@@ -110,7 +110,7 @@ X^T X =
 \end{bmatrix}
 $$
 
-## Langkah 4: Menghitung Invers Matriks $(X^T X)^{-1}$
+### Langkah 4: Menghitung Invers Matriks $(X^T X)^{-1}$
 
 - **Determinan ($ad - bc$):**
 
@@ -135,7 +135,7 @@ $$
 \end{bmatrix}
 $$
 
-## Langkah 5: Menghitung Perkalian Matriks $X^T Y$
+### Langkah 5: Menghitung Perkalian Matriks $X^T Y$
 
 $$
 X^T Y =
@@ -159,7 +159,7 @@ X^T Y =
 \end{bmatrix}
 $$
 
-## Langkah 6: Menghitung Nilai Koefisien Regresi ($\hat{\beta}$)
+### Langkah 6: Menghitung Nilai Koefisien Regresi ($\hat{\beta}$)
 
 $$
 \hat{\beta}
@@ -213,7 +213,7 @@ $$Y = 0 + 1.0769X \quad \Rightarrow \quad Y = 1.0769X$$
 
 ---
 
-# 3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)
+## 3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)
 
 Berikut adalah kode pemrograman Python menggunakan pustaka `scikit-learn` untuk mengotomatisasi perhitungan koefisien regresi serta memprediksi data:
 
@@ -249,7 +249,7 @@ for i, x_val in enumerate(X_pred.flatten()):
 
 ---
 
-# 4. HASIL PREDIKSI DATA
+## 4. HASIL PREDIKSI DATA
 
 Berdasarkan integrasi hasil dari perhitungan rumus persamaan linear:
 $Y = 1.0769X$,
@@ -262,7 +262,7 @@ didapatkan hasil prediksi nilai $Y$ sebagai berikut:
 
 ---
 
-# 5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)
+## 5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)
 
 Untuk memvisualisasikan data ini ke dalam grafik kartesius di GeoGebra, lakukan langkah input objek berikut pada kolom masukan (*input bar*):
 
@@ -279,7 +279,7 @@ Untuk memvisualisasikan data ini ke dalam grafik kartesius di GeoGebra, lakukan 
 
 Berikut adalah struktur posisi penempatan tangkapan layar (*screenshot*) grafik GeoGebra Anda untuk laporan:
 
-## A. Diagram Pencar (Scatter Plot) Data Awal
+### A. Diagram Pencar (Scatter Plot) Data Awal
 
 ![Learner](regresiLinier/img1.png)
 **GAMBAR 1: Scatter Plot Titik Data Awal A sampai G di GeoGebra**
@@ -287,7 +287,7 @@ Berikut adalah struktur posisi penempatan tangkapan layar (*screenshot*) grafik 
 - **Deskripsi:**  
   Grafik menunjukkan posisi sebaran ketujuh titik data latih berdasarkan sumbu koordinat X dan Y sebelum ditarik garis regresi.
 
-## B. Garis Regresi Terbaik (Line of Best Fit)
+### B. Garis Regresi Terbaik (Line of Best Fit)
 
 ![Learner](regresiLinier/img2.png)
 **GAMBAR 2: Plot Garis Regresi $f(x) = 0.4 + 1.05x$ Membelah Titik Data di GeoGebra**
@@ -298,7 +298,7 @@ Berikut adalah struktur posisi penempatan tangkapan layar (*screenshot*) grafik 
 
 ---
 
-# 6. KESIMPULAN
+## 6. KESIMPULAN
 
 - **Konsistensi Akurasi:**  
   Metode perhitungan analitik berbasis matriks OLS dan metode komputasi otomatis lewat program Python (`scikit-learn`) terbukti menghasilkan nilai parameter koefisien yang sama persis, yaitu nilai Intersep $\beta_0 = 0.4$ dan Slope $\beta_1 = 1.05$.

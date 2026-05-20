@@ -226,12 +226,6 @@ const thebe_selector_output = ".output, .cell_output"
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="pertemuan_8.html">Pertemuan_8</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">ANALISIS REGRESI LINEAR</a></li>
-
-
-
-
-
-
 </ul>
 </details></li>
 </ul>
@@ -429,31 +423,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ANALISIS REGRESI LINEAR</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. DATASET</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-awal-training-data">A. Data Awal (Training Data)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-prediksi-test-data">B. Data Prediksi (Test Data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. DATASET</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-awal-training-data">A. Data Awal (Training Data)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-prediksi-test-data">B. Data Prediksi (Test Data)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-secara-analitik-matriks">2. PERHITUNGAN SECARA ANALITIK (MATRIKS)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menyusun-matriks-x-dan-vektor-y">Langkah 1: Menyusun Matriks X dan Vektor Y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menghitung-transpose-matriks-x-x-t">Langkah 2: Menghitung Transpose Matriks X (<span class="math notranslate nohighlight">\(X^T\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-menghitung-perkalian-matriks-x-t-x">Langkah 3: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T X\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menghitung-invers-matriks-x-t-x-1">Langkah 4: Menghitung Invers Matriks <span class="math notranslate nohighlight">\((X^T X)^{-1}\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-menghitung-perkalian-matriks-x-t-y">Langkah 5: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T Y\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-menghitung-nilai-koefisien-regresi-hat-beta">Langkah 6: Menghitung Nilai Koefisien Regresi (<span class="math notranslate nohighlight">\(\hat{\beta}\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-secara-analitik-matriks">2. PERHITUNGAN SECARA ANALITIK (MATRIKS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menyusun-matriks-x-dan-vektor-y">Langkah 1: Menyusun Matriks X dan Vektor Y</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menghitung-transpose-matriks-x-x-t">Langkah 2: Menghitung Transpose Matriks X (<span class="math notranslate nohighlight">\(X^T\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-menghitung-perkalian-matriks-x-t-x">Langkah 3: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menghitung-invers-matriks-x-t-x-1">Langkah 4: Menghitung Invers Matriks <span class="math notranslate nohighlight">\((X^T X)^{-1}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-menghitung-perkalian-matriks-x-t-y">Langkah 5: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T Y\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-menghitung-nilai-koefisien-regresi-hat-beta">Langkah 6: Menghitung Nilai Koefisien Regresi (<span class="math notranslate nohighlight">\(\hat{\beta}\)</span>)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-program-python">3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-prediksi-data">4. HASIL PREDIKSI DATA</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#panduan-implementasi-gambar-geogebra">5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-diagram-pencar-scatter-plot-data-awal">A. Diagram Pencar (Scatter Plot) Data Awal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-garis-regresi-terbaik-line-of-best-fit">B. Garis Regresi Terbaik (Line of Best Fit)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-program-python">3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-prediksi-data">4. HASIL PREDIKSI DATA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panduan-implementasi-gambar-geogebra">5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-diagram-pencar-scatter-plot-data-awal">A. Diagram Pencar (Scatter Plot) Data Awal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-garis-regresi-terbaik-line-of-best-fit">B. Garis Regresi Terbaik (Line of Best Fit)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">6. KESIMPULAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">6. KESIMPULAN</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -466,12 +458,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analisis-regresi-linear">
 <h1>ANALISIS REGRESI LINEAR<a class="headerlink" href="#analisis-regresi-linear" title="Permalink to this heading">#</a></h1>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="dataset">
-<h1>1. DATASET<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h1>
+<section id="dataset">
+<h2>1. DATASET<a class="headerlink" href="#dataset" title="Permalink to this heading">#</a></h2>
 <section id="a-data-awal-training-data">
-<h2>A. Data Awal (Training Data)<a class="headerlink" href="#a-data-awal-training-data" title="Permalink to this heading">#</a></h2>
+<h3>A. Data Awal (Training Data)<a class="headerlink" href="#a-data-awal-training-data" title="Permalink to this heading">#</a></h3>
 <p>Data di bawah ini adalah data historis yang digunakan untuk melatih model dan mencari garis tren regresi linear terbaik.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -514,7 +505,7 @@ document.write(`
 </div>
 </section>
 <section id="b-data-prediksi-test-data">
-<h2>B. Data Prediksi (Test Data)<a class="headerlink" href="#b-data-prediksi-test-data" title="Permalink to this heading">#</a></h2>
+<h3>B. Data Prediksi (Test Data)<a class="headerlink" href="#b-data-prediksi-test-data" title="Permalink to this heading">#</a></h3>
 <p>Data di bawah ini merupakan nilai X baru yang ingin dicari prediksi nilai Y-nya berdasarkan model yang terbentuk.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -538,8 +529,8 @@ document.write(`
 </section>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="perhitungan-secara-analitik-matriks">
-<h1>2. PERHITUNGAN SECARA ANALITIK (MATRIKS)<a class="headerlink" href="#perhitungan-secara-analitik-matriks" title="Permalink to this heading">#</a></h1>
+<section id="perhitungan-secara-analitik-matriks">
+<h2>2. PERHITUNGAN SECARA ANALITIK (MATRIKS)<a class="headerlink" href="#perhitungan-secara-analitik-matriks" title="Permalink to this heading">#</a></h2>
 <p>Perhitungan koefisien regresi menggunakan metode <strong>Ordinary Least Squares (OLS)</strong> dengan rumus berbasis manipulasi matriks:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -555,7 +546,7 @@ document.write(`
 \end{bmatrix}
 \end{split}\]</div>
 <section id="langkah-1-menyusun-matriks-x-dan-vektor-y">
-<h2>Langkah 1: Menyusun Matriks X dan Vektor Y<a class="headerlink" href="#langkah-1-menyusun-matriks-x-dan-vektor-y" title="Permalink to this heading">#</a></h2>
+<h3>Langkah 1: Menyusun Matriks X dan Vektor Y<a class="headerlink" href="#langkah-1-menyusun-matriks-x-dan-vektor-y" title="Permalink to this heading">#</a></h3>
 <p>Kolom pertama pada matriks <span class="math notranslate nohighlight">\(X\)</span> diisi dengan angka 1 sebagai komponen pengali untuk intersep (<span class="math notranslate nohighlight">\(\beta_0\)</span>).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -583,7 +574,7 @@ Y =
 \end{split}\]</div>
 </section>
 <section id="langkah-2-menghitung-transpose-matriks-x-x-t">
-<h2>Langkah 2: Menghitung Transpose Matriks X (<span class="math notranslate nohighlight">\(X^T\)</span>)<a class="headerlink" href="#langkah-2-menghitung-transpose-matriks-x-x-t" title="Permalink to this heading">#</a></h2>
+<h3>Langkah 2: Menghitung Transpose Matriks X (<span class="math notranslate nohighlight">\(X^T\)</span>)<a class="headerlink" href="#langkah-2-menghitung-transpose-matriks-x-x-t" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X^T =
@@ -594,7 +585,7 @@ X^T =
 \end{split}\]</div>
 </section>
 <section id="langkah-3-menghitung-perkalian-matriks-x-t-x">
-<h2>Langkah 3: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T X\)</span><a class="headerlink" href="#langkah-3-menghitung-perkalian-matriks-x-t-x" title="Permalink to this heading">#</a></h2>
+<h3>Langkah 3: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T X\)</span><a class="headerlink" href="#langkah-3-menghitung-perkalian-matriks-x-t-x" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X^T X =
@@ -619,7 +610,7 @@ X^T X =
 \end{split}\]</div>
 </section>
 <section id="langkah-4-menghitung-invers-matriks-x-t-x-1">
-<h2>Langkah 4: Menghitung Invers Matriks <span class="math notranslate nohighlight">\((X^T X)^{-1}\)</span><a class="headerlink" href="#langkah-4-menghitung-invers-matriks-x-t-x-1" title="Permalink to this heading">#</a></h2>
+<h3>Langkah 4: Menghitung Invers Matriks <span class="math notranslate nohighlight">\((X^T X)^{-1}\)</span><a class="headerlink" href="#langkah-4-menghitung-invers-matriks-x-t-x-1" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Determinan (<span class="math notranslate nohighlight">\(ad - bc\)</span>):</strong></p></li>
 </ul>
@@ -646,7 +637,7 @@ X^T X =
 \end{split}\]</div>
 </section>
 <section id="langkah-5-menghitung-perkalian-matriks-x-t-y">
-<h2>Langkah 5: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T Y\)</span><a class="headerlink" href="#langkah-5-menghitung-perkalian-matriks-x-t-y" title="Permalink to this heading">#</a></h2>
+<h3>Langkah 5: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T Y\)</span><a class="headerlink" href="#langkah-5-menghitung-perkalian-matriks-x-t-y" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 X^T Y =
@@ -671,7 +662,7 @@ X^T Y =
 \end{split}\]</div>
 </section>
 <section id="langkah-6-menghitung-nilai-koefisien-regresi-hat-beta">
-<h2>Langkah 6: Menghitung Nilai Koefisien Regresi (<span class="math notranslate nohighlight">\(\hat{\beta}\)</span>)<a class="headerlink" href="#langkah-6-menghitung-nilai-koefisien-regresi-hat-beta" title="Permalink to this heading">#</a></h2>
+<h3>Langkah 6: Menghitung Nilai Koefisien Regresi (<span class="math notranslate nohighlight">\(\hat{\beta}\)</span>)<a class="headerlink" href="#langkah-6-menghitung-nilai-koefisien-regresi-hat-beta" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \hat{\beta}
@@ -727,8 +718,8 @@ X^T Y =
 </section>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="perhitungan-menggunakan-program-python">
-<h1>3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)<a class="headerlink" href="#perhitungan-menggunakan-program-python" title="Permalink to this heading">#</a></h1>
+<section id="perhitungan-menggunakan-program-python">
+<h2>3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)<a class="headerlink" href="#perhitungan-menggunakan-program-python" title="Permalink to this heading">#</a></h2>
 <p>Berikut adalah kode pemrograman Python menggunakan pustaka <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> untuk mengotomatisasi perhitungan koefisien regresi serta memprediksi data:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
@@ -761,8 +752,8 @@ X^T Y =
 </div>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="hasil-prediksi-data">
-<h1>4. HASIL PREDIKSI DATA<a class="headerlink" href="#hasil-prediksi-data" title="Permalink to this heading">#</a></h1>
+<section id="hasil-prediksi-data">
+<h2>4. HASIL PREDIKSI DATA<a class="headerlink" href="#hasil-prediksi-data" title="Permalink to this heading">#</a></h2>
 <p>Berdasarkan integrasi hasil dari perhitungan rumus persamaan linear:
 <span class="math notranslate nohighlight">\(Y = 1.0769X\)</span>,
 didapatkan hasil prediksi nilai <span class="math notranslate nohighlight">\(Y\)</span> sebagai berikut:</p>
@@ -790,8 +781,8 @@ didapatkan hasil prediksi nilai <span class="math notranslate nohighlight">\(Y\)
 </div>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="panduan-implementasi-gambar-geogebra">
-<h1>5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)<a class="headerlink" href="#panduan-implementasi-gambar-geogebra" title="Permalink to this heading">#</a></h1>
+<section id="panduan-implementasi-gambar-geogebra">
+<h2>5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)<a class="headerlink" href="#panduan-implementasi-gambar-geogebra" title="Permalink to this heading">#</a></h2>
 <p>Untuk memvisualisasikan data ini ke dalam grafik kartesius di GeoGebra, lakukan langkah input objek berikut pada kolom masukan (<em>input bar</em>):</p>
 <ul class="simple">
 <li><p><strong>Input Titik Sampel:</strong><br />
@@ -805,7 +796,7 @@ atau ketik perintah:<br />
 </ul>
 <p>Berikut adalah struktur posisi penempatan tangkapan layar (<em>screenshot</em>) grafik GeoGebra Anda untuk laporan:</p>
 <section id="a-diagram-pencar-scatter-plot-data-awal">
-<h2>A. Diagram Pencar (Scatter Plot) Data Awal<a class="headerlink" href="#a-diagram-pencar-scatter-plot-data-awal" title="Permalink to this heading">#</a></h2>
+<h3>A. Diagram Pencar (Scatter Plot) Data Awal<a class="headerlink" href="#a-diagram-pencar-scatter-plot-data-awal" title="Permalink to this heading">#</a></h3>
 <p><img alt="Learner" src="_images/img11.png" />
 <strong>GAMBAR 1: Scatter Plot Titik Data Awal A sampai G di GeoGebra</strong></p>
 <ul class="simple">
@@ -814,7 +805,7 @@ Grafik menunjukkan posisi sebaran ketujuh titik data latih berdasarkan sumbu koo
 </ul>
 </section>
 <section id="b-garis-regresi-terbaik-line-of-best-fit">
-<h2>B. Garis Regresi Terbaik (Line of Best Fit)<a class="headerlink" href="#b-garis-regresi-terbaik-line-of-best-fit" title="Permalink to this heading">#</a></h2>
+<h3>B. Garis Regresi Terbaik (Line of Best Fit)<a class="headerlink" href="#b-garis-regresi-terbaik-line-of-best-fit" title="Permalink to this heading">#</a></h3>
 <p><img alt="Learner" src="_images/img21.png" />
 <strong>GAMBAR 2: Plot Garis Regresi <span class="math notranslate nohighlight">\(f(x) = 0.4 + 1.05x\)</span> Membelah Titik Data di GeoGebra</strong></p>
 <ul class="simple">
@@ -824,8 +815,8 @@ Grafik menampilkan garis lurus linear terbaik yang ditarik membelah sebaran data
 </section>
 </section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
-<h1>6. KESIMPULAN<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h1>
+<section id="kesimpulan">
+<h2>6. KESIMPULAN<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Konsistensi Akurasi:</strong><br />
 Metode perhitungan analitik berbasis matriks OLS dan metode komputasi otomatis lewat program Python (<code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>) terbukti menghasilkan nilai parameter koefisien yang sama persis, yaitu nilai Intersep <span class="math notranslate nohighlight">\(\beta_0 = 0.4\)</span> dan Slope <span class="math notranslate nohighlight">\(\beta_1 = 1.05\)</span>.</p></li>
@@ -834,6 +825,7 @@ Persamaan regresi: <span class="math notranslate nohighlight">\(Y = 1.0769X\)</s
 <li><p><strong>Validasi Geometris:</strong><br />
 Implementasi grafis menggunakan aplikasi GeoGebra memberikan konfirmasi visual bahwa model regresi linear yang dibangun telah membagi sebaran data secara seimbang, serta memastikan seluruh koordinat hasil prediksi baru berada tepat pada lintasan garis regresi linear model tersebut.</p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -891,31 +883,29 @@ Implementasi grafis menggunakan aplikasi GeoGebra memberikan konfirmasi visual b
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ANALISIS REGRESI LINEAR</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. DATASET</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-awal-training-data">A. Data Awal (Training Data)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-prediksi-test-data">B. Data Prediksi (Test Data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">1. DATASET</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-awal-training-data">A. Data Awal (Training Data)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-prediksi-test-data">B. Data Prediksi (Test Data)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-secara-analitik-matriks">2. PERHITUNGAN SECARA ANALITIK (MATRIKS)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menyusun-matriks-x-dan-vektor-y">Langkah 1: Menyusun Matriks X dan Vektor Y</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menghitung-transpose-matriks-x-x-t">Langkah 2: Menghitung Transpose Matriks X (<span class="math notranslate nohighlight">\(X^T\)</span>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-menghitung-perkalian-matriks-x-t-x">Langkah 3: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T X\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menghitung-invers-matriks-x-t-x-1">Langkah 4: Menghitung Invers Matriks <span class="math notranslate nohighlight">\((X^T X)^{-1}\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-menghitung-perkalian-matriks-x-t-y">Langkah 5: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T Y\)</span></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-menghitung-nilai-koefisien-regresi-hat-beta">Langkah 6: Menghitung Nilai Koefisien Regresi (<span class="math notranslate nohighlight">\(\hat{\beta}\)</span>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-secara-analitik-matriks">2. PERHITUNGAN SECARA ANALITIK (MATRIKS)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-menyusun-matriks-x-dan-vektor-y">Langkah 1: Menyusun Matriks X dan Vektor Y</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-2-menghitung-transpose-matriks-x-x-t">Langkah 2: Menghitung Transpose Matriks X (<span class="math notranslate nohighlight">\(X^T\)</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-3-menghitung-perkalian-matriks-x-t-x">Langkah 3: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-menghitung-invers-matriks-x-t-x-1">Langkah 4: Menghitung Invers Matriks <span class="math notranslate nohighlight">\((X^T X)^{-1}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-menghitung-perkalian-matriks-x-t-y">Langkah 5: Menghitung Perkalian Matriks <span class="math notranslate nohighlight">\(X^T Y\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-menghitung-nilai-koefisien-regresi-hat-beta">Langkah 6: Menghitung Nilai Koefisien Regresi (<span class="math notranslate nohighlight">\(\hat{\beta}\)</span>)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-program-python">3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-prediksi-data">4. HASIL PREDIKSI DATA</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#panduan-implementasi-gambar-geogebra">5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-diagram-pencar-scatter-plot-data-awal">A. Diagram Pencar (Scatter Plot) Data Awal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-garis-regresi-terbaik-line-of-best-fit">B. Garis Regresi Terbaik (Line of Best Fit)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-menggunakan-program-python">3. PERHITUNGAN MENGGUNAKAN PROGRAM (PYTHON)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-prediksi-data">4. HASIL PREDIKSI DATA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#panduan-implementasi-gambar-geogebra">5. PANDUAN IMPLEMENTASI GAMBAR (GEOGEBRA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-diagram-pencar-scatter-plot-data-awal">A. Diagram Pencar (Scatter Plot) Data Awal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-garis-regresi-terbaik-line-of-best-fit">B. Garis Regresi Terbaik (Line of Best Fit)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">6. KESIMPULAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">6. KESIMPULAN</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
