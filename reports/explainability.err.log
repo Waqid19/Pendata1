@@ -169,9 +169,9 @@ C:\Users\LENOVO\AppData\Local\Programs\Python\Python39\lib\site-packages\tqdm\au
 --- Data Harian Setelah Agregasi ---
 ------------------
 
-[1;31m---------------------------------------------------------------[0m
-[1;31mTypeError[0m                     Traceback (most recent call last)
-Cell [1;32mIn[4], line 25[0m
+[1;31m----------------------------------------------------------------[0m
+[1;31mTypeError[0m                      Traceback (most recent call last)
+Cell [1;32mIn[2], line 25[0m
 [0;32m     22[0m data_test [38;5;241m=[39m data[38;5;241m.[39mloc[[38;5;124m'[39m[38;5;124m2014-12-22[39m[38;5;124m'[39m:]
 [0;32m     24[0m [38;5;66;03m# 4. Buat Peramalan Multi-Langkah Rekursif (ForecasterRecursive)[39;00m
 [1;32m---> 25[0m forecaster [38;5;241m=[39m [43mForecasterRecursive[49m[43m([49m
