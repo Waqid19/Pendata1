@@ -18,5 +18,22 @@ chapters:
     - file: normalisasi_data
 - file: pertemuan_4
   sections:
-    - file: UTS# Table of contents
-
+    - file: UTS
+- file: pertemuan_5
+  sections:
+    - file: NaiveBayes
+- file: pertemuan_6
+  sections:
+    - file: DecisionTree
+- file: pertemuan_7
+  sections:
+    - file: randomForest
+- file: pertemuan_8
+  sections:
+    - file: regresiLinier
+- file: pertemuan_9
+  sections:
+    - file: peramalan
+- file: pertemuan_10
+  sections:
+    - file: explainability1
