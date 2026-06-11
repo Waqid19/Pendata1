@@ -159,15 +159,30 @@ fig.tight_layout()
 plt.show()
 ------------------
 
+----- stderr -----
+C:\Users\LENOVO\AppData\Local\Programs\Python\Python39\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+----- stdout -----
+--- Data Mentah (3 Baris Pertama) ---
+----- stdout -----
+
+--- Data Harian Setelah Agregasi ---
+------------------
 
 [1;31m---------------------------------------------------------------[0m
-[1;31mModuleNotFoundError[0m           Traceback (most recent call last)
-Cell [1;32mIn[2], line 3[0m
-[0;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mpandas[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mpd[39;00m
-[0;32m      2[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mplt[39;00m
-[1;32m----> 3[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mshap[39;00m
-[0;32m      4[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01minspection[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m permutation_importance
-[0;32m      5[0m [38;5;28;01mfrom[39;00m[38;5;250m [39m[38;5;21;01msklearn[39;00m[38;5;21;01m.[39;00m[38;5;21;01minspection[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m PartialDependenceDisplay
+[1;31mTypeError[0m                     Traceback (most recent call last)
+Cell [1;32mIn[4], line 25[0m
+[0;32m     22[0m data_test [38;5;241m=[39m data[38;5;241m.[39mloc[[38;5;124m'[39m[38;5;124m2014-12-22[39m[38;5;124m'[39m:]
+[0;32m     24[0m [38;5;66;03m# 4. Buat Peramalan Multi-Langkah Rekursif (ForecasterRecursive)[39;00m
+[1;32m---> 25[0m forecaster [38;5;241m=[39m [43mForecasterRecursive[49m[43m([49m
+[0;32m     26[0m [43m    [49m[43mestimator[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mLGBMRegressor[49m[43m([49m[43mrandom_state[49m[38;5;241;43m=[39;49m[38;5;241;43m123[39;49m[43m,[49m[43m [49m[43mverbose[49m[38;5;241;43m=[39;49m[38;5;241;43m-[39;49m[38;5;241;43m1[39;49m[43m)[49m[43m,[49m
+[0;32m     27[0m [43m    [49m[43mlags[49m[43m      [49m[38;5;241;43m=[39;49m[43m [49m[38;5;241;43m7[39;49m
+[0;32m     28[0m [43m)[49m
+[0;32m     29[0m forecaster[38;5;241m.[39mfit(
+[0;32m     30[0m     y    [38;5;241m=[39m data_train[[38;5;124m'[39m[38;5;124mDemand[39m[38;5;124m'[39m],
+[0;32m     31[0m     exog [38;5;241m=[39m data_train[[38;5;124m'[39m[38;5;124mTemperature[39m[38;5;124m'[39m]
+[0;32m     32[0m )
+[0;32m     33[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m--- Struktur Objek Forecaster ---[39m[38;5;124m"[39m)
 
-[1;31mModuleNotFoundError[0m: No module named 'shap'
+[1;31mTypeError[0m: __init__() got an unexpected keyword argument 'estimator'
 

@@ -571,6 +571,108 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install matplotlib
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: matplotlib in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (3.9.4)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.3.0)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (4.60.2)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.4.7)
+Requirement already satisfied: numpy&gt;=1.23 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.26.4)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (26.0)
+Requirement already satisfied: pillow&gt;=8 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (11.3.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (3.3.2)
+Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (2.9.0.post0)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (6.5.2)
+Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib) (3.23.0)
+Requirement already satisfied: six&gt;=1.5 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.17.0)
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install shap skforecast lightgbm
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting shap
+  Downloading shap-0.49.1-cp39-cp39-win_amd64.whl.metadata (25 kB)
+Requirement already satisfied: skforecast in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (0.18.0)
+Collecting lightgbm
+  Using cached lightgbm-4.6.0-py3-none-win_amd64.whl.metadata (17 kB)
+Requirement already satisfied: numpy in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (1.26.4)
+Requirement already satisfied: scipy in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (1.13.1)
+Requirement already satisfied: scikit-learn in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (1.6.1)
+Requirement already satisfied: pandas in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (2.3.3)
+Requirement already satisfied: tqdm&gt;=4.27.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (4.68.2)
+Requirement already satisfied: packaging&gt;20.9 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (26.0)
+Collecting slicer==0.0.8 (from shap)
+  Using cached slicer-0.0.8-py3-none-any.whl.metadata (4.0 kB)
+Requirement already satisfied: numba&gt;=0.54 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (0.60.0)
+Collecting cloudpickle (from shap)
+  Using cached cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: typing-extensions in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (4.15.0)
+Requirement already satisfied: optuna&gt;=2.10 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (4.9.0)
+Requirement already satisfied: joblib&gt;=1.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (1.5.3)
+Requirement already satisfied: rich&gt;=13.9 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (15.0.0)
+Requirement already satisfied: llvmlite&lt;0.44,&gt;=0.43.0dev0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from numba&gt;=0.54-&gt;shap) (0.43.0)
+Requirement already satisfied: alembic&gt;=1.5.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (1.16.5)
+Requirement already satisfied: colorlog in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (6.10.1)
+Requirement already satisfied: sqlalchemy&gt;=1.4.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (2.0.46)
+Requirement already satisfied: PyYAML in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (6.0.3)
+Requirement already satisfied: Mako in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from alembic&gt;=1.5.0-&gt;optuna&gt;=2.10-&gt;skforecast) (1.3.12)
+Requirement already satisfied: tomli in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from alembic&gt;=1.5.0-&gt;optuna&gt;=2.10-&gt;skforecast) (2.4.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas-&gt;shap) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas-&gt;shap) (2026.1.post1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas-&gt;shap) (2026.1)
+Requirement already satisfied: six&gt;=1.5 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;shap) (1.17.0)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from rich&gt;=13.9-&gt;skforecast) (2.2.0)
+Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from rich&gt;=13.9-&gt;skforecast) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=13.9-&gt;skforecast) (0.1.2)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn-&gt;shap) (3.6.0)
+Requirement already satisfied: greenlet&gt;=1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from sqlalchemy&gt;=1.4.2-&gt;optuna&gt;=2.10-&gt;skforecast) (3.2.4)
+Requirement already satisfied: colorama in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from tqdm&gt;=4.27.0-&gt;shap) (0.4.6)
+Requirement already satisfied: MarkupSafe&gt;=0.9.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from Mako-&gt;alembic&gt;=1.5.0-&gt;optuna&gt;=2.10-&gt;skforecast) (3.0.3)
+Downloading shap-0.49.1-cp39-cp39-win_amd64.whl (547 kB)
+   ---------------------------------------- 0.0/547.2 kB ? eta -:--:--
+   ---------------------------------------- 547.2/547.2 kB 8.9 MB/s  0:00:00
+Using cached slicer-0.0.8-py3-none-any.whl (15 kB)
+Using cached lightgbm-4.6.0-py3-none-win_amd64.whl (1.5 MB)
+Using cached cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Installing collected packages: slicer, cloudpickle, lightgbm, shap
+
+   -------------------- ------------------- 2/4 [lightgbm]
+   -------------------- ------------------- 2/4 [lightgbm]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ------------------------------ --------- 3/4 [shap]
+   ---------------------------------------- 4/4 [shap]
+
+Successfully installed cloudpickle-3.1.2 lightgbm-4.6.0 shap-0.49.1 slicer-0.0.8
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">shap</span>
@@ -710,16 +812,149 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">shap</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutation_importance</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.inspection</span><span class="w"> </span><span class="kn">import</span> <span class="n">PartialDependenceDisplay</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\LENOVO\AppData\Local\Programs\Python\Python39\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">╭──────────────────────────── <span style="font-weight: bold">vic_electricity</span> ─────────────────────────────╮
+│ <span style="font-weight: bold">Description:</span>                                                             │
+│ Half-hourly electricity demand for Victoria, Australia                   │
+│                                                                          │
+│ <span style="font-weight: bold">Source:</span>                                                                  │
+│ O'Hara-Wild M, Hyndman R, Wang E, Godahewa R (2022).tsibbledata: Diverse │
+│ Datasets for 'tsibble'. https://tsibbledata.tidyverts.org/,              │
+│ https://github.com/tidyverts/tsibbledata/.                               │
+│ https://tsibbledata.tidyverts.org/reference/vic_elec.html                │
+│                                                                          │
+│ <span style="font-weight: bold">URL:</span>                                                                     │
+│ https://raw.githubusercontent.com/skforecast/skforecast-                 │
+│ datasets/main/data/vic_electricity.csv                                   │
+│                                                                          │
+│ <span style="font-weight: bold">Shape:</span> 52608 rows x 4 columns                                            │
+╰──────────────────────────────────────────────────────────────────────────╯
+</pre>
+</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data Mentah (3 Baris Pertama) ---
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;shap&#39;
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Demand</th>
+      <th>Temperature</th>
+      <th>Date</th>
+      <th>Holiday</th>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2011-12-31 13:00:00</th>
+      <td>4382.825174</td>
+      <td>21.40</td>
+      <td>2012-01-01</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2011-12-31 13:30:00</th>
+      <td>4263.365526</td>
+      <td>21.05</td>
+      <td>2012-01-01</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2011-12-31 14:00:00</th>
+      <td>4048.966046</td>
+      <td>20.70</td>
+      <td>2012-01-01</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Data Harian Setelah Agregasi ---
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Demand</th>
+      <th>Temperature</th>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2011-12-31</th>
+      <td>82531.745918</td>
+      <td>21.047727</td>
+    </tr>
+    <tr>
+      <th>2012-01-01</th>
+      <td>227778.257304</td>
+      <td>26.578125</td>
+    </tr>
+    <tr>
+      <th>2012-01-02</th>
+      <td>275490.988882</td>
+      <td>31.751042</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                     </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">25</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">data_test</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2014-12-22&#39;</span><span class="p">:]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="c1"># 4. Buat Peramalan Multi-Langkah Rekursif (ForecasterRecursive)</span>
+<span class="ne">---&gt; </span><span class="mi">25</span> <span class="n">forecaster</span> <span class="o">=</span> <span class="n">ForecasterRecursive</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">estimator</span> <span class="o">=</span> <span class="n">LGBMRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">lags</span>      <span class="o">=</span> <span class="mi">7</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">forecaster</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>     <span class="n">y</span>    <span class="o">=</span> <span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;Demand&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="n">exog</span> <span class="o">=</span> <span class="n">data_train</span><span class="p">[</span><span class="s1">&#39;Temperature&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Struktur Objek Forecaster ---&quot;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: __init__() got an unexpected keyword argument &#39;estimator&#39;
 </pre></div>
 </div>
 </div>
