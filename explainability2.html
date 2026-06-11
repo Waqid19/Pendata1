@@ -64,10 +64,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'explainability1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'explainability2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Pertemuan_10" href="pertemuan_10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,6 +129,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -174,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="pendahuluan.html">Pendahuluan</a></li>
 
 
@@ -232,8 +233,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="peramalan.html"><strong>Peramalan Kadar NO2 di Daerah Sumenep</strong></a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="pertemuan_10.html">Pertemuan_10</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ANALISIS EXPLAINABILITY TIME SERIES FORECASTING</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="pertemuan_10.html">Pertemuan_10</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="explainability1.html">ANALISIS EXPLAINABILITY TIME SERIES FORECASTING</a></li>
 </ul>
 </details></li>
 </ul>
@@ -307,7 +308,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexplainability1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fexplainability2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -337,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/explainability1.ipynb" target="_blank"
+      <li><a href="_sources/explainability2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -529,53 +530,40 @@ Dalam pemodelan deret waktu, Lag adalah representasi nilai variabel target pada 
 Berikut adalah kode Python final yang digunakan untuk mereproduksi seluruh analisis di atas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install pandas matplotlib shap scikit-learn lightgbm skforecast
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install skforecast
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (2.3.3)
-Requirement already satisfied: matplotlib in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (3.9.4)
-Requirement already satisfied: shap in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (0.49.1)
-Requirement already satisfied: scikit-learn in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (1.6.1)
-Requirement already satisfied: lightgbm in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (4.6.0)
-Requirement already satisfied: skforecast in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (0.18.0)
-Requirement already satisfied: numpy&gt;=1.22.4 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas) (1.26.4)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2026.1.post1)
-Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas) (2026.1)
-Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.3.0)
-Requirement already satisfied: cycler&gt;=0.10 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (4.60.2)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (1.4.7)
-Requirement already satisfied: packaging&gt;=20.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (26.0)
-Requirement already satisfied: pillow&gt;=8 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (11.3.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (3.3.2)
-Requirement already satisfied: importlib-resources&gt;=3.2.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from matplotlib) (6.5.2)
-Requirement already satisfied: scipy in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (1.13.1)
-Requirement already satisfied: tqdm&gt;=4.27.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (4.68.2)
-Requirement already satisfied: slicer==0.0.8 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (0.0.8)
-Requirement already satisfied: numba&gt;=0.54 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (0.60.0)
-Requirement already satisfied: cloudpickle in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (3.1.2)
-Requirement already satisfied: typing-extensions in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from shap) (4.15.0)
-Requirement already satisfied: joblib&gt;=1.2.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (1.5.3)
-Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn) (3.6.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: skforecast in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (0.18.0)
+Requirement already satisfied: numpy&gt;=1.24 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (1.26.4)
+Requirement already satisfied: pandas&gt;=1.5 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (2.3.3)
+Requirement already satisfied: tqdm&gt;=4.57 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (4.68.2)
+Requirement already satisfied: scikit-learn&gt;=1.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (1.6.1)
 Requirement already satisfied: optuna&gt;=2.10 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (4.9.0)
+Requirement already satisfied: joblib&gt;=1.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (1.5.3)
+Requirement already satisfied: numba&gt;=0.59 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (0.60.0)
 Requirement already satisfied: rich&gt;=13.9 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from skforecast) (15.0.0)
-Requirement already satisfied: zipp&gt;=3.1.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib) (3.23.0)
-Requirement already satisfied: llvmlite&lt;0.44,&gt;=0.43.0dev0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from numba&gt;=0.54-&gt;shap) (0.43.0)
+Requirement already satisfied: llvmlite&lt;0.44,&gt;=0.43.0dev0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from numba&gt;=0.59-&gt;skforecast) (0.43.0)
 Requirement already satisfied: alembic&gt;=1.5.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (1.16.5)
 Requirement already satisfied: colorlog in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (6.10.1)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (26.0)
 Requirement already satisfied: sqlalchemy&gt;=1.4.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (2.0.46)
 Requirement already satisfied: PyYAML in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from optuna&gt;=2.10-&gt;skforecast) (6.0.3)
 Requirement already satisfied: Mako in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from alembic&gt;=1.5.0-&gt;optuna&gt;=2.10-&gt;skforecast) (1.3.12)
+Requirement already satisfied: typing-extensions&gt;=4.12 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from alembic&gt;=1.5.0-&gt;optuna&gt;=2.10-&gt;skforecast) (4.15.0)
 Requirement already satisfied: tomli in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from alembic&gt;=1.5.0-&gt;optuna&gt;=2.10-&gt;skforecast) (2.4.1)
-Requirement already satisfied: six&gt;=1.5 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas&gt;=1.5-&gt;skforecast) (2.9.0.post0)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas&gt;=1.5-&gt;skforecast) (2026.1.post1)
+Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from pandas&gt;=1.5-&gt;skforecast) (2026.1)
+Requirement already satisfied: six&gt;=1.5 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&gt;=1.5-&gt;skforecast) (1.17.0)
 Requirement already satisfied: markdown-it-py&gt;=2.2.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from rich&gt;=13.9-&gt;skforecast) (2.2.0)
 Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from rich&gt;=13.9-&gt;skforecast) (2.19.2)
 Requirement already satisfied: mdurl~=0.1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=13.9-&gt;skforecast) (0.1.2)
+Requirement already satisfied: scipy&gt;=1.6.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn&gt;=1.2-&gt;skforecast) (1.13.1)
+Requirement already satisfied: threadpoolctl&gt;=3.1.0 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from scikit-learn&gt;=1.2-&gt;skforecast) (3.6.0)
 Requirement already satisfied: greenlet&gt;=1 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from sqlalchemy&gt;=1.4.2-&gt;optuna&gt;=2.10-&gt;skforecast) (3.2.4)
-Requirement already satisfied: colorama in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from tqdm&gt;=4.27.0-&gt;shap) (0.4.6)
+Requirement already satisfied: colorama in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from tqdm&gt;=4.57-&gt;skforecast) (0.4.6)
 Requirement already satisfied: MarkupSafe&gt;=0.9.2 in c:\users\lenovo\appdata\local\programs\python\python39\lib\site-packages (from Mako-&gt;alembic&gt;=1.5.0-&gt;optuna&gt;=2.10-&gt;skforecast) (3.0.3)
 Note: you may need to restart the kernel to use updated packages.
 </pre></div>
@@ -904,15 +892,6 @@ Note: you may need to restart the kernel to use updated packages.
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="pertemuan_10.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Pertemuan_10</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
