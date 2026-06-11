@@ -437,7 +437,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-output-target">B. Output (Target)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-lag-dalam-time-series-forecasting">3. Konsep Lag dalam Time Series Forecasting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-proses-analisis-kasus">4. Alur Proses Analisis Kasus</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-pra-pemrosesan-pemisahan-data">Tahap 1: Pra-pemrosesan &amp; Pemisahan Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-inisialisasi-dan-pelatihan-model">Tahap 2: Inisialisasi dan Pelatihan Model</a></li>
@@ -446,7 +445,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-analisis-hubungan-marjinal-shap-dependence-plot">Tahap 5: Analisis Hubungan Marjinal (SHAP Dependence Plot)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-program-utuh">5. Kode Program Utuh</a></li>
 </ul>
             </nav>
         </div>
@@ -484,17 +482,15 @@ eksternal berupa rata-rata suhu udara harian pada hari yang bersangkutan.</p></l
 <ul class="simple">
 <li><p>Demand (<span class="math notranslate nohighlight">\(t+1\)</span>): Total nilai permintaan energi listrik harian pada langkah waktu berikutnya yang menjadi target prediksi model.</p></li>
 </ul>
-</section>
-</section>
-<section id="konsep-lag-dalam-time-series-forecasting">
-<h2>3. Konsep Lag dalam Time Series Forecasting<a class="headerlink" href="#konsep-lag-dalam-time-series-forecasting" title="Permalink to this heading">#</a></h2>
-<p>Dalam pemodelan deret waktu, Lag adalah representasi nilai variabel target pada langkah waktu sebelumnya (kemunduran waktu). Karena pemrosesan data di-resample ke tingkat harian (‘D’), maka definisinya adalah:</p>
+<p>##3. Konsep Lag dalam Time Series Forecasting
+Dalam pemodelan deret waktu, Lag adalah representasi nilai variabel target pada langkah waktu sebelumnya (kemunduran waktu). Karena pemrosesan data di-resample ke tingkat harian (‘D’), maka definisinya adalah:</p>
 <ul class="simple">
 <li><p>Lag 1: Total penggunaan listrik 1 hari yang lalu.</p></li>
 <li><p>Lag 2: Total penggunaan listrik 2 hari yang lalu.</p></li>
 <li><p>Lag 7: Total penggunaan listrik 7 hari yang lalu (pola mingguan pada hari yang sama).</p></li>
 </ul>
 <p>Analogi: Jika kita ingin memprediksi omset warung pada hari ini, salah satu prediktor paling kuat adalah mengetahui berapa omset warung tersebut kemarin (Lag 1) dan bagaimana tren omset pada hari yang sama di minggu lalu (Lag 7). Nilai masa lalu inilah yang menuntun arah prediksi masa depan.</p>
+</section>
 </section>
 <section id="alur-proses-analisis-kasus">
 <h2>4. Alur Proses Analisis Kasus<a class="headerlink" href="#alur-proses-analisis-kasus" title="Permalink to this heading">#</a></h2>
@@ -529,11 +525,8 @@ eksternal berupa rata-rata suhu udara harian pada hari yang bersangkutan.</p></l
 <h3>Tahap 5: Analisis Hubungan Marjinal (SHAP Dependence Plot)<a class="headerlink" href="#tahap-5-analisis-hubungan-marjinal-shap-dependence-plot" title="Permalink to this heading">#</a></h3>
 <p>Plot ketergantungan di bawah ini menunjukkan hubungan marjinal antara output model dan fitur target (Temperature).</p>
 <p>Kita dapat melihat pola “hockey stick” atau kurva berbentuk J yang sangat menarik: dampak suhu terhadap permintaan listrik meningkat secara dramatis dan non-linear pada suhu tinggi (di atas ~25°C), mencerminkan penggunaan AC yang masif. Mewarnai titik berdasarkan lag_1 (permintaan sehari sebelumnya) menunjukkan interaksi tambahan: pada suhu tinggi, permintaan listrik sehari sebelumnya yang tinggi (warna merah) sering dikaitkan dengan nilai SHAP yang lebih tinggi, yang memperkuat lonjakan beban akibat cuaca panas. Dampak suhu rendah (di bawah ~15°C) juga positif tetapi lebih bervariasi.</p>
-</section>
-</section>
-<section id="kode-program-utuh">
-<h2>5. Kode Program Utuh<a class="headerlink" href="#kode-program-utuh" title="Permalink to this heading">#</a></h2>
-<p>Berikut adalah kode Python final yang digunakan untuk mereproduksi seluruh analisis di atas:</p>
+<p>##5. Kode Program Utuh
+Berikut adalah kode Python final yang digunakan untuk mereproduksi seluruh analisis di atas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install skforecast
@@ -733,6 +726,7 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -795,7 +789,6 @@ Note: you may need to restart the kernel to use updated packages.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-output-target">B. Output (Target)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-lag-dalam-time-series-forecasting">3. Konsep Lag dalam Time Series Forecasting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-proses-analisis-kasus">4. Alur Proses Analisis Kasus</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-pra-pemrosesan-pemisahan-data">Tahap 1: Pra-pemrosesan &amp; Pemisahan Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-inisialisasi-dan-pelatihan-model">Tahap 2: Inisialisasi dan Pelatihan Model</a></li>
@@ -804,7 +797,6 @@ Note: you may need to restart the kernel to use updated packages.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-analisis-hubungan-marjinal-shap-dependence-plot">Tahap 5: Analisis Hubungan Marjinal (SHAP Dependence Plot)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-program-utuh">5. Kode Program Utuh</a></li>
 </ul>
   </nav></div>
 
